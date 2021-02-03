@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+    <header><!--  тег, що означає що в нас є "шапка" сайту -->
+        <nav><!--  тег, що вказує, що тут буде навігаційне меню -->
+        <!-- п.4 ми переробили трохи структуру - винесли <nav> з <div class="container">. Тепер ми можемо застилізувати нав замість хедера, і це буде правильніше.  -->
+            <div class="container"><!--  бачим, що шапка розташована в певних границях, а не на всю ширину, тому використовуєм контейнер, щоб розташовувати контент в цих межах, хоча і бекграунд розтягується на всю ширину, цей контейнер вже підтягується з "bootstrap-grid.min.css" файлу -->
+                <!-- прописуєм 'ul.menu>li.menu_item*5>a.menu_link' щоб розрити таку структуру за одним разом -->
+                <ul class="menu"><!--  можна було б створити це меню просто силками і розташувати їх в ряд, але так не правильно з точки зору SEO просування сайту, тому ми створюємо список, в середині списку в нас є деякі елементи списків, а всередині них вже буде силка, яка веде на іншу сторінку, чи на той чи інший розділ даної сторінки -->
+                    <li class="menu_item"><a href="#" class="menu_link">Головна</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Для водіїв на власному авто</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Для водіїв на авто компанії</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Вимоги</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Контакти</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Зареєструватися як водій</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- п.6 Плюс тепер в <header> ми зможем помістити ще один блок, який знаходиться під навігаційним меню (емблема, телефон, кнопка 'передзвонити') -->
+        <div class="subheader">
+            <div class="container">
+                <!-- спочатку створюємо строку, а вже потім в неї поміщаємо колонки! -->
+                <div class="row">
+                    <!-- перший елемент (лого з підписом внизу) займає в нас 4 колонки 'col-4' згідно гріду (вертик черв лінії) в авокоді, але і має відступ зправа в контейнері на одну колонку від краю 'offset-md-1' (https://getbootstrap.com/docs/5.0/layout/columns/#offsetting-columns) -->
+                    <div class="col-md-4 offset-md-1">
+                        <!-- створюємо посилання, і вже в середині нього вставлям картинку (лого), це зробили для того, щоб якщо нажимаєш на лого, то зразу попадаєш на головну сторінку, а не просто значок, так роблять на всіх хороших сайтах -->
+                        <a href="#" class="subheader_logo"><img src="/src/icons/logo1.png" alt="subheader_logo"></a>
+                        <div class="subheader_text">Офіційний партнер Uber у Львові</div>
+                    </div>
+                    <div class="col-md-2 offset-md-2">
+                        <div class="subheader_text_call">Телефонуйте нам щодня</div>
+                        <a href="tel:0630630101" class="subheader_phone">063 063 01 01</a>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="subheader_btn">Передзвоніть мені</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="promo">
+        <!-- для того щоб обмежити весь контент по ширині згідно нашого макету, створюєм class="content" із вже приписаними для нього властивостями в бутстрапі -->
+        <div class="container">
+            <!-- далі для того щоб розмістити весь контент в даному блоці, в колонках маєм пропиати строку в якій будуть колонки! строка може бути всього одна на цілий блок і в ній вже будем розміщати все решта -->
+            <div class="row">
+                <!-- згідно сітки макету, в даному блоці використовується 10 колонок (col-md-10) і по одній з боку залишаються вілньними (відступ зліва 1 колонка - offset-md-1, і відповідно зправа залишиться також одна вільна)  -->
+                <div class="col-md-10 offset-md-1">
+                <h1 class="promo_header">КОМПАНІЯ UBERDRIVE</h1>
+                <h2 class="promo_subheader">ЗАПРОШУЄМО ВОДІЇВ НА СВОЄМУ АВТО!</h2>
+                <div class="promo_description">
+                    Компанія UBER динамічно розвивається і займає на ринку лідируюче місце. Компанія абсолютно прозора, ви можете контролювати всі процеси у себе в особистому кабінеті. Бонуcна система. Окрім виконаної роботи по замовленнях, компанія нараховує бонуси за піковий час. 
+                    <br><br>
+                    Ми зарекомендували себе як одна з найкращих команд у місті Львові.
+                    <br>
+                    Водії у нас заробляють від 25 000 до 45 000 в місяць.</div>
+                </div>
+                <button class="promo_btn">ПОДАТИ ЗАЯВКУ</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="reasons">
+        <div class="container">
+            <div class="label">переваги</div>
+            <div class="title">8 причин розпочати працювати з нами</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_1.png" alt="reason_1">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Жодної готівки, оплата відбувається автоматично</div>
+                            <div class="reasons_text">Вартість поїздки оплачується пасажиром з прив'язаної банківської карти, немає ніяких ризиків пов'язаних з перевезенням готівки як для пасажира, так і для водія, Вам не потрібно шукати дрібні гроші для розміну.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_2.png" alt="reason_2">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Комісія 8% + БОНУСИ</div>
+                            <div class="reasons_text">У нас мінімальна комісія і ми виплачуємо бонуси за кожну поїздку, деякі наші конкуренти залишають бонуси собі. Ми працюємо чесно і з нами водії заробляють більше!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_3.png" alt="reason_3">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Високий дохід з гарантованими виплатами</div>
+                            <div class="reasons_text">Ми виплачуємо заробітну плату на особисту банківську карту водія! Вам не потрібно оформляти ТОВ, ФОП, платити податки, подавати декларацію, оплачувати бухгалтерські послуги та ведення банківського рахунку.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_4.png" alt="reason_4">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Робота в зручний час, ніяких графіків</div>
+                            <div class="reasons_text">Ви просто натискаєте кнопку вийти на лінію для початку роботи, коли вирішите закінчити, натискаєте вийти з лінії. Ви можете підробляти тільки вранці, ввечері, у вихідні або святкові дні!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_5.png" alt="reason_5">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Комфортне, прозоре і просте підключення</div>
+                            <div class="reasons_text">Ми підключаємо дистанційно і безкоштовно, Вам не потрібно приїжджати до нас! Ви надсилаєте нам копії документів, ми реєструємо Вас і надсилаємо дані для підключення, через 1-2 дня Ви можете починати працювати!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_6.png" alt="reason_6">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Завжди велика кількість замовлень</div>
+                            <div class="reasons_text">Додаток показує, де на даний момент найбільше замовлень і де діють підвищені тарифи. У Вас не буде простою і зайвих пробігів. Наші пасажири завжди приємні і абсолютно неконфліктні люди, яких приємно возити.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_7.png" alt="reason_7">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Цілодобова підтримка</div>
+                            <div class="reasons_text">В Uber діє цілодобова підтримка водіїв по електронній пошті. Якщо щось незрозуміло, Ви завжди можете задати питання через On-line консультацію.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="reasons_block">
+                        <div class="reasons_round">
+                            <img src="../src/icons/reasons/reason_8.png" alt="reason_8">
+                        </div>
+                        <div class="reasons_description">
+                            <div class="reasons_subtitle">Без шашок і наклейок</div>
+                            <div class="reasons_text">Вам не потрібно змінювати колір, встановлювати "шашки" на автомобіль і обклеювати його наклейками.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mobile">
+        <div class="container">
+            <div class="label">можливості</div>
+            <div class="title">мобільний додаток uber</div>
+            <div class="subtitle">Зробіть замовлення, здійсніть поїздку і оплатіть її вартість, використовуючи свій смартфон</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_1"> <!-- для того щоб картинки в кожного блоку були різні, ми дописали другу частину класу, і в кожного вона своя (mobile_item_*) і вже далі прописуєм шляк до картинки в параметрах "стайл"сасс -->
+                    <div class="mobile_item_subtitle">зробіть замовлення одним дотиком</div>
+                    <div class="mobile_item_icon">
+                        <!-- будем пробувати створити ці хрестики за допомогою CSS -->
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_2">
+                    <div class="mobile_item_subtitle">швидка подача</div>
+                    <div class="mobile_item_icon">
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_3">
+                    <div class="mobile_item_subtitle">прозорі ціни</div>
+                    <div class="mobile_item_icon">
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_4">
+                    <div class="mobile_item_subtitle">безготівкова оплата</div>
+                    <div class="mobile_item_icon">
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_5">
+                    <div class="mobile_item_subtitle">зворотній зв'язок</div>
+                    <div class="mobile_item_icon">
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mobile_item mobile_item_6">
+                    <div class="mobile_item_subtitle">можливість розділити вартість поїздки</div>
+                    <div class="mobile_item_icon">
+                        <!-- <img src="icons/plus.png" alt="plus_icon_in_round"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="choice">
+        <div class="container">
+            <div class="black"></div>
+            <div class="label label_white">можливості</div>
+            <div class="title title_white">вибір - відмінна штука!</div>
+            <div class="subtitle subtitle_white">Замовте автомобіль, який підходить вам за стилем і бюджетом</div>
+            <div class="image_logo">
+                <img src="img/car2.png" alt="" class="choice_img">
+                <div class="choice_logo_text">uberX</div>
+                <div class="choice_logo_subtext">доступний uber</div>
+            </div>
+            <div class="choice_description">Авто на кожен день.<br>Краще, швидше і дешевше, ніж таксі</div>
+        </div>
+    </section>
+
+    <section class="require">
+        <div class="container">
+            <div class="label">можливості</div>
+            <div class="title">умови і вимоги</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="condition_own_car_block">
+                        <div class="require_title">УМОВИ: зі своїм авто</div>
+                        <ul class="require_list">
+                            <li>Підключаємо до системи UBER під 10%</li>
+                            <li>Ніяких внесків!</li>
+                            <li>Можемо підключати віддалено без приїзду в офіс</li>
+                            <li>ФОП не потрібно</li>
+                            <li>Замовлення розподіляються без урахування рейтингу найближчим водіям</li>
+                            <li>Робота тільки за безготівковим розрахунком</li>
+                            <li>Гроші перераховуємо на картку водієві або готівкою в офісі</li>
+                        </ul>
+                        <div class="reqire_description">У день заробіток становить 2000-3000грн + бонус 500грн</div>
+                    </div>
+                    </div>
+
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    
+</body>
+</html>
