@@ -9,7 +9,12 @@ $second-color: #ff5656
         background-color: $main-color
 
 *
+    padding: 0;
+    margin: 0;
     font-family: 'Roboto', sans-serif
+
+a
+    text-decoration: none
 
 header
     position: relative
@@ -31,15 +36,12 @@ nav
 	&_item
 		padding-right: 28px
 		border-right: 2px dotted black
-
-.menu a
-    text-decoration: none
-    color: #ffffff
-    font-size: 15px
-    font-weight: 300
-    &:hover
-        text-decoration: none
-        color: $main-color
+		a
+			color: #ffffff
+			font-size: 15px
+			font-weight: 300
+			&:hover
+				color: $main-color
 
 .subheader
     height: 84px
@@ -71,8 +73,9 @@ nav
         margin-top: 8px
         display: block
         text-align: right
-        text-decoration: none
         line-height: 17px
+        &:hover
+            color: #ffffffbd
     &_btn
         margin-top: 20px
         width: 172px
@@ -307,7 +310,8 @@ nav
                 position: absolute
                 left: 50%
                 transform: translateX(-50%)
-            // при наведенні на круг, колір хрестика буде мінятись, якщо 1 табуляцію і середній рядок забрати, то тоді сам кружок буде міняти колір
+                // при наведенні на круг, колір хрестика буде мінятись, якщо 1 табуляцію і середній рядок забрати, то тоді сам кружок буде міняти колір
+                transition: 0.3s all
             &:hover
                 &::before, &::after
                     background-color: white
@@ -372,22 +376,120 @@ nav
         padding-left: 50px
         margin-top: 22px
         li
-            margin-bottom: 10px
             color: #222222
             font-size: 17px
             font-weight: 300
             line-height: 24px
-            text-align: left
-            display: inline-block
+            margin-bottom: 10px
+            position: relative
             // для того щоб сторінка не підгружала кожну галочку з сервера і оптимізувати нагрузку на сервер, розміщаєм галочки в кругах через псевдоелементи
             &::before
                 content: ''
                 width: 21px
                 height: 20px
                 background: url('../icons/check_blue.svg') center (center / cover) no-repeat
-                // щоб вирівняти картинку з текстом в одну лінію, так як застосувати флекси ми не можем до ЛІ (не буде працювати Бефор), міняєм дісплей:блок на інлайн-блок і тут і в батьківського елемента "li"
-                display: inline-block
-                vertical-align: middle
-                // вирівнюєм кружки по вертикалі точно і відсуваєм від тексту
-                transform: translate(-5px, -2px)
-                
+                // щоб вирівняти картинку з текстом в одну лінію, так як застосувати флекси ми не можем до ЛІ (не буде працювати Бефор)
+                display: block
+                position: absolute
+                left: -32px
+                top: 2px
+    &_description
+        color: #1ca8c3                
+        margin-top: 25px
+        font-size: 17px
+        font-weight: 300
+        line-height: 24px
+    .must_have
+        .require_title
+            color: $second-color
+        .require_list
+            li
+                &::before
+                    background: url('../icons/check_red.svg') center (center / cover) no-repeat
+
+.world 
+	position: relative
+	min-height: 717px
+	padding: 49px 0
+	background: url('../img/bg/map.jpg') center (center / cover) no-repeat
+	&_link 
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		bottom: 49px
+		text-align: center
+		font-size: 15px
+		font-weight: 500
+		line-height: 68px
+		text-transform: uppercase
+		color: #1fbad6
+		&:hover 
+			color: #fff
+
+footer 
+	padding: 14px 23px 39px 23px
+
+.footer
+	&_divider
+		margin: 0 auto
+		width: 299px
+		height: 4px
+		background-color: #1fbad6
+	&_wrapper
+		padding-top: 32px
+		display: flex 
+		justify-content: space-between
+		align-items: flex-start
+    // розділяєм по ширині на 3 рівні секції
+	&_wrapper > div
+		width: 33.33%
+        // вирівнюєм останню секцію по правому краю
+		&:nth-child(3)
+			display: flex 
+			justify-content: flex-end
+	&_social
+		width: 160px
+		display: flex
+		justify-content: space-between
+		&_item 
+			display: flex 
+			justify-content: center
+			align-items: center
+			margin: 0 4px 
+			width: 32px
+			height: 32px
+			background-color: #070716
+			border-radius: 50%
+			i 
+				color: #fff
+	&_links
+		width: 390px
+		margin: 0 auto
+		&_main 
+			display: flex 
+			justify-content: space-between
+			padding: 0 10px
+			a 
+				color: #070716
+				font-size: 15px
+				font-weight: 500
+				text-transform: uppercase
+		&_sub 
+			display: flex 
+			justify-content: space-between
+			margin-top: 10px
+			a 
+				color: #999999
+				font-size: 11px
+				font-weight: 400
+				text-transform: uppercase
+		&_lang 
+			display: block 
+			margin: 0 auto
+			color: #1fbad6
+			font-size: 11px
+			font-weight: 400
+			margin-top: 19px
+			text-transform: uppercase
+			text-align: center
+
